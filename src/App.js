@@ -1,11 +1,21 @@
 import React from 'react'
-import Login from './component/Login'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import routers from './routers';
 const App = () => {
   return (
-    <div>
-      <Login />
-      
-    </div>
+    <Router>
+      {/* <Home /> */}
+      <Routes>
+        {routers.map((item, index) => (
+          <Route
+            key={index}
+            path={item.path}
+            element={<item.element />}
+          />
+        ))}
+      </Routes>
+
+    </Router>
   )
 }
 
